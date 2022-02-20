@@ -1,0 +1,10 @@
+name: SkyPvP
+version: '${project.version}'
+main: me.temez.moonrise.skypvp.Main
+api-version: 1.18
+prefix: SkyPvP
+load: STARTUP
+depend: [ Vault, Essentials, HolographicDisplays ]
+authors: [ temez ]
+description: SkyPVP plugin fo MoonRise Network
+website: moonrise.network
