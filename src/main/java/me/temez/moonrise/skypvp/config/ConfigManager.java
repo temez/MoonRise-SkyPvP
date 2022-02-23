@@ -6,15 +6,15 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
-public class SConfig extends FileConfiguration{
+public class ConfigManager {
 
-    private String path;
-    private Main instance;
+    private final String path;
+    private final Main instance;
     File file;
-    private FileConfiguration config;
+    private final FileConfiguration config;
 
 
-    public SConfig(String path){
+    public ConfigManager(String path) {
         this.instance = Main.getInstance();
         this.path = path;
         this.file = new File(instance.getDataFolder(), path);
@@ -26,14 +26,14 @@ public class SConfig extends FileConfiguration{
 
         config = new YamlConfiguration();
 
-        try{
+        try {
             config.load(file);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void save(){
+    public void save() {
         try {
             config.save(new File(instance.getDataFolder(), path));
         } catch (Exception e) {
@@ -41,16 +41,7 @@ public class SConfig extends FileConfiguration{
         }
     }
 
-    public FileConfiguration getConfig(){
+    public FileConfiguration getConfig() {
         return this.config;
-    }
-
-    @Override
-    public String saveToString() {
-        return null;
-    }
-    @Override
-    public void loadFromString(String contents) {
-
     }
 }

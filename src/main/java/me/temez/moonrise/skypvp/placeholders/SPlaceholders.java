@@ -45,10 +45,10 @@ public class SPlaceholders extends PlaceholderExpansion {
             return "";
         }
         if (identifier.equals("level")) {
-            return ChatColor.GOLD + "" + p.getLevel();
+            return ChatColor.GOLD + "" + p.getLevel().getLevel();
         }
         if (identifier.equals("deaths")) {
-            return ChatColor.RED +  "" +p.getDeaths() + "";
+            return ChatColor.RED + "" + p.getDeaths() + "";
         }
         if (identifier.equals("kills")) {
             return ChatColor.GREEN + "" + p.getKills() + "";
