@@ -1,4 +1,4 @@
-package me.temez.moonrise.skypvp.event;
+package me.temez.moonrise.skypvp.event.world;
 
 import me.temez.moonrise.skypvp.Main;
 import org.bukkit.event.EventHandler;

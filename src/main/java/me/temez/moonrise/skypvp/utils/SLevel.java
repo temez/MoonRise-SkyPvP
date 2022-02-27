@@ -12,23 +12,18 @@ public class SLevel {
         this.level = level;
         this.money = config.getConfig().getDouble("levels." + level + ".money");
         this.kills = config.getConfig().getInt("levels." + level + ".kills");
-        this.msg = config.getConfig().getString("levels." + level + ".msg");
     }
 
-    public int getKillsFor() {
-        return this.kills;
+    public int getRequiredKills() {
+        return kills;
     }
 
-    public double getMoneyFor() {
-        return this.money;
-    }
-
-    public String getMsg() {
-        return this.msg;
+    public double getRequiredMoney() {
+        return money;
     }
 
     public int getLevel() {
-        return this.level;
+        return level;
     }
 
 }

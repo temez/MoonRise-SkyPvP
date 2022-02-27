@@ -73,7 +73,7 @@ public class SPlayer {
 
     public boolean hasAllForNextLevel() {
         SLevel level = new SLevel(getNextLevel().getLevel());
-        return getBalance() >= level.getMoneyFor() && getKills() >= level.getKillsFor();
+        return getBalance() >= level.getRequiredMoney() && getKills() >= level.getRequiredKills();
     }
 
     public double getBalance() {
@@ -104,7 +104,7 @@ public class SPlayer {
     public void doLevelUp() {
         SLevel lvl = getNextLevel();
         if (hasAllForNextLevel()) {
-            takeMoney(lvl.getMoneyFor());
+            takeMoney(lvl.getRequiredMoney());
             player.getWorld().playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 2.0f);
             setLevel(getNextLevel());
             player.sendMessage(SChatMessage.NEW_LEVEL.getMessage());

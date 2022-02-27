@@ -28,8 +28,8 @@ public class SLevelInventory implements Listener {
         this.inventory = Bukkit.createInventory(null, InventoryType.DISPENSER, "Повышение уровня");
 
         SLevel lvl = player.getNextLevel();
-        int kills = lvl.getKillsFor();
-        double money = lvl.getMoneyFor();
+        int kills = lvl.getRequiredKills();
+        double money = lvl.getRequiredMoney();
         ItemStack Planes = new ItemStack(Material.STAINED_GLASS_PANE, 1);
         ItemMeta Meta = Planes.getItemMeta();
         if (player.hasAllForNextLevel()) {
@@ -58,7 +58,15 @@ public class SLevelInventory implements Listener {
 
     @EventHandler
     public void onEvent(InventoryClickEvent e) {
+        if(e.isCancelled()){
+            return;
+        }
+
         if (e.getInventory().equals(this.inventory)) {
+            if(e.getSlotType().equals(InventoryType.SlotType.OUTSIDE)){
+                return;
+            }
+
             e.setCancelled(true);
             if (e.getRawSlot() == 4) {
                 this.player.doLevelUp();
